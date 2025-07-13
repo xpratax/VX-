@@ -1,0 +1,48 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Frames do fantasma (duas versões para dar efeito de piscada)
+frame1='
+           .-"      "-.
+          /            \
+         |              |
+         |,  .-.  .-.  ,|
+         | )(_o/  \o_)( |
+         |/     /\     \|
+         (_     ^^     _)
+          \__|IIIIII|__/
+           | \IIIIII/ |
+           \          /
+            `--------`'
+
+frame2='
+           .-"      "-.
+          /            \
+         |              |
+         |,  o-o  o-o  ,|
+         | )(__/  \__)( |
+         |/     \/     \|
+         (_     ~~     _)
+          \__|------|__/
+           |  \____/  |
+           \   ----   /
+            `--------`'
+
+# Função para desenhar frame com cor branca forte
+draw() {
+  clear
+  echo -e "\e[1;37m$1\e[0m"
+}
+
+# Mensagem inicial
+clear
+echo -e "\e[1;31m👻 O FANTASMA APARECEU! Pressione CTRL+C para encerrar.\e[0m"
+sleep 2
+
+# Loop infinito de animação até CTRL+C
+while true; do
+  draw "$frame1"
+  sleep 0.3
+  draw "$frame2"
+  sleep 0.3
+done
+0
